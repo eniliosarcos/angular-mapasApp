@@ -14,13 +14,17 @@ import * as mapboxgl from 'mapbox-gl';
     .row{
       background-color: white;
       bottom: 50px;
-      left: 50px;
       padding: 10px;
       border-radius: 5px;
 
       position: fixed;
       z-index: 999;
-      width: 400px;
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+
+    button{
+      padding: 1px 10px;
     }
     `
   ]
@@ -37,14 +41,14 @@ export class ZoomRangeComponent implements AfterViewInit, OnDestroy {
 
 
   ngOnDestroy(): void {
-    
+
     this.mapa.off('zoom', () => {});
     this.mapa.off('zoomend', () => {});
     this.mapa.off('move', () => {});
   }
 
   ngAfterViewInit(): void {
-    
+
     this.mapa = new mapboxgl.Map({
 
       container: this.divMapa.nativeElement,
